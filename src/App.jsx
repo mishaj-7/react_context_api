@@ -7,13 +7,14 @@ export class App extends Component {
   render() {
     return (
       <>
-        <ThemeContextProvider>
-          <Navigation />
-          <BookList />
-        </ThemeContextProvider>
-        
+        <div className='App'>
+          <ThemeContextProvider>
+            <Navigation />
+            <BookList />
+          </ThemeContextProvider>
+        </div>
       </>
-    )
+    );
   }
 }
 
