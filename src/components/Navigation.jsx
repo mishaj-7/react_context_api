@@ -1,42 +1,32 @@
-import React, { useContext } from 'react'
-import { ThemeContext } from '../context/ThemeContext'
-import { AuthContext } from '../context/AuthContext';
-
-
+import React, { useContext } from "react";
+import  {ThemeContext}  from "../context/ThemeContext";
+import { AuthContext } from "../context/AuthContext";
 
 const Navigation = () => {
-  const { isLightTheme, light, dark } = useContext(ThemeContext);
-  
+  const { isLightTheme, data } = useContext(ThemeContext);
+  console.log(data)
   const { isAuthenticated, toggleAuth } = useContext(AuthContext);
-  const theme = isLightTheme ? light : dark;
+  const theme = isLightTheme ? data.light : data.dark;
 
   return (
-    // console.log(this.context);
-    //console.log(isAuthenticated)
-    //console.log((isAuthenticated?'true':'false'));
     <nav style={{ background: theme.ui, color: theme.text }}>
-      <h1>context</h1>
+      <h1>Context</h1>
       <div onClick={toggleAuth}>
-        {isAuthenticated ? "loggedin" : "logged out"}
+        {isAuthenticated ? "Logged In" : "Logged Out"}
       </div>
       <button
         onClick={toggleAuth}
         style={{ background: theme.ui, color: theme.text }}
       >
-        {isAuthenticated ? "out" : "in"}
+        {isAuthenticated ? "Sign Out" : "Sign In"}
       </button>
       <ul>
-        <li>home</li>
-        <li>about</li>
-        <li>contact</li>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
       </ul>
     </nav>
   );
 };
 
-export default Navigation
-
-  
-    
-  
-
+export default Navigation;
